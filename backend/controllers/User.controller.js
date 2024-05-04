@@ -3,7 +3,7 @@ import User from '../models/User.model.js'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
-export const registeCtrl = expressAsyncHandler(async (req, res) => {
+export const registerCtrl = expressAsyncHandler(async (req, res) => {
     // get fields from client
     const { name, email, password, address, mobile } = req.body
 
@@ -100,4 +100,19 @@ export const logoutCtrl = expressAsyncHandler(async (req, res) => {
     res.status(200).json({
         message: "Logout successful"
     })
+})
+
+export const userProfileCtrl = expressAsyncHandler(async (req, res) => {
+    // console.log(req.user.id);
+    const user = await User.findById(req?.user?.id).select("-password")
+
+    if (user) {
+        res.status(200).json({
+            status: 'success',
+            user
+        })
+    } else {
+        res.status(404)
+        throw new Error('User not found!')
+    }
 })
