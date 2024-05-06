@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import errorHandler from './middlewares/errorMiddleware.js'
 import connectDB from './db/connectDB.js'
 import cookieParser from 'cookie-parser'
+import cors from 'cors'
 
 // routes imports
 // import fetchData from './fetchProducts.js'   // fetch data route
@@ -14,9 +15,14 @@ const app = express()
 // PORT NO.
 const port = process.env.PORT || 8888
 
+const corsOptions = {
+    origin: "http://localhost:9000/"
+}
+
 // middlewares
 app.use(express.json())     // to parse json data
 app.use(cookieParser())     // to pass cookies
+app.use(cors(corsOptions))
 
 // dotenv configuration
 dotenv.config()

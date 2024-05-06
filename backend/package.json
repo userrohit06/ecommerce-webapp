@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "cd ../frontend && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Rohit Khatri",
   "license": "ISC",
