@@ -2,6 +2,7 @@ import expressAsyncHandler from 'express-async-handler'
 import User from '../models/User.model.js'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import Product from '../models/Product.model.js'
 
 export const registerCtrl = expressAsyncHandler(async (req, res) => {
     // get fields from client
@@ -115,4 +116,46 @@ export const userProfileCtrl = expressAsyncHandler(async (req, res) => {
         res.status(404)
         throw new Error('User not found!')
     }
+})
+
+export const addToCartCtrl = expressAsyncHandler(async (req, res) => {
+    const currentUser = req.user
+    const { quantity } = req.body
+    const productId = req.params.productId
+
+    // console.log("currentUser: ", currentUser);
+
+    // check if user exists
+    if (!currentUser) {
+        res.status(404)
+        throw new Error('User Not Found')
+    }
+
+    // find the product by id
+    const product = await Product.findById(productId)
+    // console.log("product: ", product);
+
+    // check if product exists
+    if (!product) {
+        res.status(404)
+        throw new Error("Product not available")
+    }
+
+    // check if product already exists in cart
+    const existingCartItem = currentUser.cart.find(item => String(item.product) === productId)
+    // console.log("existingCartItem: ", existingCartItem);
+
+    if (existingCartItem) {
+        // update the quantity if product exists
+        existingCartItem.quantity += quantity
+    } else {
+        currentUser.cart.push({ product, quantity })
+    }
+
+    await currentUser.save()
+    res.status(200).json({
+        status: 'success',
+        message: 'Product has been added to your Cart!',
+        currentUser
+    })
 })
