@@ -1,0 +1,27 @@
+.footer{
+    position: fixed;
+    height: 12vh;
+    width: 100%;
+    background-color: black;
+    bottom: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px;
+}
+
+.footer .footer_social_icons{
+    width: 20px;
+    height: 20px;
+    margin: 0 3px;
+    cursor: pointer;
+}
+
+.footer .footer_cursor{
+    cursor: pointer;
+}
+
+.footer .copyright{
+    color: rgb(226, 213, 213);
+}
