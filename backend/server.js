@@ -16,7 +16,8 @@ const app = express()
 const port = process.env.PORT || 8888
 
 const corsOptions = {
-    origin: "http://localhost:9000/"
+    origin: "http://localhost:9000",
+    credentials: true   // allow credentials (cookies)
 }
 
 // middlewares

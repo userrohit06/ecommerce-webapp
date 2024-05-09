@@ -92,7 +92,8 @@ export const loginCtrl = expressAsyncHandler(async (req, res) => {
         status: 'success',
         message: 'Log in successful',
         _id: existingUser._id,
-        email: existingUser.email
+        email: existingUser.email,
+        token
     })
 })
 

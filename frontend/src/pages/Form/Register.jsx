@@ -1,11 +1,56 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from "axios"
 import styles from "./form.module.css"
 
 const Register = () => {
+    const URI = import.meta.env.VITE_BACKEND_URL
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: '',
+        address: '',
+        mobile: ''
+    })
+    const { name, email, password, address, mobile } = formData
+    const navigate = useNavigate()
+
+    // handle input change
+    const onHandleChange = (event) => {
+        const { name, value } = event.target
+        setFormData({
+            ...formData,
+            [name]: value
+        })
+    }
+
+    // submit form to the backend
+    const onHandleSubmit = async (event) => {
+        // prevent default behavior of browser (page refresh)
+        event.preventDefault()
+
+        try {
+            // make post request to send data to backend
+            const response = await axios.post(`${URI}/users/register`, formData)
+            // console.log(response);
+
+            // set fields to empty
+            setFormData({
+                name: "", email: "", password: "", address: "", mobile: ""
+            })
+
+            // redirect user to login page
+            if (response?.status === 200) {
+                navigate("/login")
+            }
+        } catch (error) {
+            alert("Error in registration! Please check your inputs.")
+        }
+    }
+
     return (
         // main form tag
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={onHandleSubmit}>
 
             {/* first div */}
             <div className={styles.form_heading}>
@@ -21,6 +66,8 @@ const Register = () => {
                         placeholder='Enter your name'
                         required
                         name='name'
+                        value={name}
+                        onChange={onHandleChange}
                     />
                 </div>
 
@@ -31,6 +78,8 @@ const Register = () => {
                         placeholder='Enter your email'
                         required
                         name='email'
+                        value={email}
+                        onChange={onHandleChange}
                     />
                 </div>
 
@@ -41,6 +90,8 @@ const Register = () => {
                         placeholder='Enter your password'
                         required
                         name='password'
+                        value={password}
+                        onChange={onHandleChange}
                     />
                 </div>
 
@@ -51,6 +102,8 @@ const Register = () => {
                         placeholder='Enter your address'
                         required
                         name='address'
+                        value={address}
+                        onChange={onHandleChange}
                     />
                 </div>
 
@@ -61,6 +114,8 @@ const Register = () => {
                         placeholder='Enter your mobile number'
                         required
                         name='mobile'
+                        value={mobile}
+                        onChange={onHandleChange}
                     />
                 </div>
             </div>

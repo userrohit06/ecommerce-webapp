@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from "./Header.module.css"
+import SearchBar from '../Search/Search'
 
 const Header = () => {
     return (
@@ -19,7 +20,7 @@ const Header = () => {
 
             {/* div 2 */}
             <div className={styles.search_div}>
-                {/* <Search style={styles} /> */}
+                <SearchBar style={styles} />
             </div>
 
             {/* div 3 */}
