@@ -1,0 +1,32 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    width: 250px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: #ffffff; /* Card background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight box shadow for elevation */
+    padding: 20px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.card img{
+    width: 200px;
+    height: 200px;
+    object-fit: fill;
+    border-radius: 4px;
+}
+
+.card .card_details{
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.card .card_details .price{
+    margin-bottom: 3px;
+}

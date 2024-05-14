@@ -27,12 +27,12 @@ const productsSlice = createSlice({
                 state.loading = true
             })
             .addCase(fetchAllProducts.rejected, (state, action) => {
-                state.loading = false,
-                    state.error = action.error
+                state.loading = false
+                state.error = action.error
             })
             .addCase(fetchAllProducts.fulfilled, (state, action) => {
-                state.loading = false,
-                    state.data = action.payload
+                state.loading = false
+                state.data = action.payload
             })
 
             // fetch single product
@@ -40,12 +40,12 @@ const productsSlice = createSlice({
                 state.loading = true
             })
             .addCase(fetchSingleProduct.rejected, (state, action) => {
-                state.loading = false,
-                    state.error = action.error
+                state.loading = false
+                state.error = action.error
             })
             .addCase(fetchSingleProduct.fulfilled, (state, action) => {
-                state.loading = false,
-                    state.productData = action.payload
+                state.loading = false
+                state.productData = action.payload
             })
 
             // fetch all categories
@@ -53,12 +53,12 @@ const productsSlice = createSlice({
                 state.loading = true
             })
             .addCase(fetchCategories.rejected, (state, action) => {
-                state.loading = false,
-                    state.error = action.error
+                state.loading = false
+                state.error = action.error
             })
             .addCase(fetchCategories.fulfilled, (state, action) => {
-                state.loading = false,
-                    state.categories = action.payload
+                state.loading = false
+                state.categories = action.payload
             })
     }
 })

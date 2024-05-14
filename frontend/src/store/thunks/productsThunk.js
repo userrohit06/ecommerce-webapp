@@ -15,7 +15,7 @@ export const fetchSingleProduct = createAsyncThunk("/fetch/singleProduct", async
 export const fetchAllProducts = createAsyncThunk("fetch/allProducts", async () => {
     const URI = import.meta.env.VITE_BACKEND_URL
     try {
-        const response = await axios.get(`${URI}/all`)
+        const response = await axios.get(`${URI}/products/all`)
         return response.data.products
     } catch (error) {
         console.log(error.message);

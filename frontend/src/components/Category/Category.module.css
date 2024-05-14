@@ -1,0 +1,21 @@
+h3{
+    margin: 5px 0 0 7px;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.category_list{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+}
+
+.category_list input{
+    margin: 0 5px 0 10px;
+    cursor: pointer;
+}
+
+.category_list label{
+    font-weight: 650;
+    cursor: pointer;
+}
