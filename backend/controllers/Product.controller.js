@@ -28,7 +28,7 @@ export const getAllProducts = expressAsyncHandler(async (req, res) => {
 
 export const getSinglePrdouct = expressAsyncHandler(async (req, res) => {
     const productId = req.params.productId
-    const currentProduct = await Product.findById(productId)
+    const currentProduct = await Product.findOne({ id: productId })
 
     if (!currentProduct) {
         res.status(404)

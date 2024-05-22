@@ -1,13 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchSingleProduct = createAsyncThunk("/fetch/singleProduct", async (id) => {
+export const fetchSingleProduct = createAsyncThunk("fetch/singleProduct", async (id) => {
     const URI = import.meta.env.VITE_BACKEND_URL
     try {
         const response = await axios.get(`${URI}/products/product/${id}`)
         return response.data.product
     } catch (error) {
-        console.log(error.message);
         return error.message
     }
 })
@@ -18,7 +17,6 @@ export const fetchAllProducts = createAsyncThunk("fetch/allProducts", async () =
         const response = await axios.get(`${URI}/products/all`)
         return response.data.products
     } catch (error) {
-        console.log(error.message);
         return error.message
     }
 })

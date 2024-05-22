@@ -30,6 +30,10 @@ const userSchema = new Schema({
             product: {
                 type: Schema.Types.ObjectId,
                 ref: "Product"
+            },
+            totalAmount: {
+                type: Number,
+                default: 0
             }
         }
     ]

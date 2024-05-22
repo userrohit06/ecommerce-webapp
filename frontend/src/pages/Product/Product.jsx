@@ -1,8 +1,9 @@
 import React from 'react'
+import ProductDetails from '../../components/ProductDetails/ProductDetails.jsx'
 
 const Product = () => {
     return (
-        <div>Product</div>
+        <ProductDetails />
     )
 }
 

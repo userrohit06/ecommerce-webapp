@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 81vh;
+}
+
+.product_images{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: center;
+    margin-right: 100px;
+    margin-left: -150px;
+}
+
+.product_details{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 25%;
+    height: 100%;
+}

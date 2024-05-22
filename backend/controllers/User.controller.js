@@ -100,6 +100,7 @@ export const loginCtrl = expressAsyncHandler(async (req, res) => {
 export const logoutCtrl = expressAsyncHandler(async (req, res) => {
     res.clearCookie('token')
     res.status(200).json({
+        success: true,
         message: "Logout successful"
     })
 })
@@ -142,15 +143,19 @@ export const addToCartCtrl = expressAsyncHandler(async (req, res) => {
         throw new Error("Product not available")
     }
 
+    // calculate total amount
+    const totalAmount = product.price * quantity
+
     // check if product already exists in cart
     const existingCartItem = currentUser.cart.find(item => String(item.product) === productId)
     // console.log("existingCartItem: ", existingCartItem);
 
     if (existingCartItem) {
-        // update the quantity if product exists
+        // update the quantity and total amount if product exists
         existingCartItem.quantity += quantity
+        existingCartItem.totalAmount += totalAmount
     } else {
-        currentUser.cart.push({ product, quantity })
+        currentUser.cart.push({ product, quantity, totalAmount })
     }
 
     await currentUser.save()

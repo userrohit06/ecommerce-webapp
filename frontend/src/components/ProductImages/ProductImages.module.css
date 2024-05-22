@@ -1,0 +1,26 @@
+.images{
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.images_list{
+    display: flex;
+    flex-direction: column;
+    height: 380px;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_image_div{
+    height: 400px;
+    width: 500px;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_image{
+    height: 400px;
+    width: 500px;
+    cursor: pointer;
+}
