@@ -1,62 +1,69 @@
 .form{
-    width: 50vw;
-    background-color: aqua;
+    width: 40vw;
+    background-color: #f5f5f5;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 70vh;
-    margin: 30px auto 8px auto;
-    border-radius: 5%;
+    padding: 40px 20px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.form .form_heading{
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 0 0 50px 0;
+.form_heading{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #333;
 }
 
-.form .form_field{
-    margin: 10px 0;
-    padding: 5px;   
+.form_field{
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .form input{
-    padding: 4px 0 4px 18px;
-    width: 250px;
-    border: none;
-    outline: 1px solid rgb(62, 60, 60);
-    border-radius: 10px;
+    width: calc(100%-36px);
+    padding: 10px 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
 }
 
 .form input::placeholder{
-    font-weight: 530;
+    font-weight: 400;
+    color: #888;
 }
 
-.form .form_button_submit{
-    width: 100px;
-    padding: 5px 20px;
+.form_button_submit{
+    size-adjust: 100%;
+    padding: 10px 20px;
     margin-top: 15px;
     border: none;
-    border-radius: 10px;
-    background-color: rgb(41, 88, 88);
-    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    background-color: #2a5c5c;
+    color: #fff;
     font-weight: bold;
+    font-size: 1rem;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.form .form_button_submit:hover{
-    box-sizing: border-box;
-    font-size: small;
+.form_button_submit:hover{
+    background-color: #1d4141;
 }
 
-.form .text{
+.text{
     margin-top: 20px;
     font-weight: bold;
+    color: #333;
 }
 
-.form .form_login_text{
-    color: rgb(91, 83, 83);
+.form_login_text{
+    color: #2a5c5c;
     cursor: pointer;
     text-decoration: none;
+    margin-left: 5px;
 }

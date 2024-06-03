@@ -165,3 +165,20 @@ export const addToCartCtrl = expressAsyncHandler(async (req, res) => {
         currentUser
     })
 })
+
+export const getCartItemsCtrl = expressAsyncHandler(async (req, res) => {
+    const currentUser = req.user
+
+    if (!currentUser) {
+        res.status(404)
+        throw new Error('User not found')
+    }
+
+    //populate cart items with product details
+    await currentUser.populate('cart.product')
+
+    res.status(200).json({
+        status: 'success',
+        cartItems: currentUser.cart
+    })
+})

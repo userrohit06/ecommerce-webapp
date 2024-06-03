@@ -13,7 +13,7 @@ const Category = ({ category }) => {
         dispatch(setSelectedCategories(updatedCategories))
     }
     return (
-        <div>
+        <div className={styles.container}>
             <div>
                 <h3>Categories</h3>
             </div>

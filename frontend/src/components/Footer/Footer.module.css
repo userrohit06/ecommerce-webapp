@@ -1,27 +1,66 @@
-.footer{
+.footer {
     position: fixed;
-    height: 12vh;
-    width: 100%;
-    background-color: black;
     bottom: 0;
-    color: white;
+    width: 100%;
+    height: 17vh;
+    background-color: #282828; /* Dark grey background */
+    color: #f1f1f1; /* Light grey text color */
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 4px;
+    justify-content: center;
+    padding: 10px;
 }
 
-.footer .footer_social_icons{
-    width: 20px;
-    height: 20px;
-    margin: 0 3px;
+.footer .social_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; /* Space between icons and text */
+}
+
+.footer .footer_social_icons {
+    width: 30px; /* Larger size for visibility */
+    height: 30px;
+    margin: 0 10px; /* More space between icons */
     cursor: pointer;
+    transition: transform 0.3s, color 0.3s; /* Smooth transition for hover effect */
+    color: #ff8800; /* Icon color */
 }
 
-.footer .footer_cursor{
+.footer .footer_social_icons:hover {
+    transform: scale(1.2); /* Enlarge icons on hover */
+    color: #ffd700; /* Change color on hover */
+}
+
+.footer .footer_links {
+    text-align: center;
+    margin-bottom: 10px; /* Space between links and copyright */
+}
+
+.footer .footer_links p {
+    margin: 5px 0; /* Spacing between link lines */
     cursor: pointer;
+    color: #cccccc; /* Slightly darker text color */
+    transition: color 0.3s;
 }
 
-.footer .copyright{
-    color: rgb(226, 213, 213);
+.footer .footer_links p:hover {
+    color: #ff8800; /* Change color on hover */
+}
+
+.footer .footer_links a {
+    color: #ff8800; /* Link color */
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s;
+}
+
+.footer .footer_links a:hover {
+    color: #ffd700; /* Change color on hover */
+}
+
+.footer .copyright {
+    color: #aaaaaa; /* Light grey for less emphasis */
+    font-size: 0.8rem; /* Slightly smaller font size */
 }

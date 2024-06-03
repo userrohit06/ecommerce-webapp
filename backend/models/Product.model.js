@@ -13,14 +13,5 @@ const cartItemsSchema = new Schema({
     images: [String]
 })
 
-// exclude some properties to avoid cicular references
-cartItemsSchema.set('toJSON', {
-    transform: function (doc, ret) {
-        delete ret._id;
-        delete ret.__v;
-        return ret
-    }
-})
-
 const Product = model("Product", cartItemsSchema)
 export default Product

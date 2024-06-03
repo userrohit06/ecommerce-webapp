@@ -1,26 +1,32 @@
 .images{
     width: 100px;
     height: 100px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    border-radius: 5px;
     cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.images:hover{
+    transform: scale(1.1);
+    border-color: #ff8800;
 }
 
 .images_list{
     display: flex;
     flex-direction: column;
-    height: 380px;
-    align-items: center;
-    justify-content: center;
+    gap: 10px;
 }
 
 .main_image_div{
-    height: 400px;
-    width: 500px;
-    align-items: center;
-    justify-content: center;
+    margin-top: 20px;
 }
 
 .main_image{
+    width: 400px;
     height: 400px;
-    width: 500px;
-    cursor: pointer;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
